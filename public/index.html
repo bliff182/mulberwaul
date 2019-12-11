@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <!-- CSS Reset -->
+   <link rel='stylesheet' type='text/css' href='assets/css/reset.css'>
+   <!-- Bootstrap -->
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+   <!-- My CSS -->
+   <link rel='stylesheet' type='text/css' href='assets/css/burger_style.css'>
+   <title>Eat-Da-Burger!</title>
+</head>
+
+<body>
+
+   <!-- Button trigger modal -->
+   <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Launch demo modal
+   </button> -->
+
+   <!-- Modal -->
+   <div class="modal fade" id="burgerModal" tabindex="-1" role="dialog" aria-labelledby="burgerModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <h5 class="modal-title" id="burgerModalLabel">Add a Burger!</h5>
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+               </button>
+            </div>
+            <div class="modal-body">
+
+               <!-- Form to add burger goes here -->
+               <form>
+                  <div class="form-group">
+                     <label for="burgerInput">Enter your craving!</label>
+                     <input type="text" class="form-control" id="burgerInput" aria-describedby="burgerHelp"
+                        placeholder="Even a veggie burger is acceptable.">
+                     <!-- <small id="burgerHelp" class="form-text text-muted">Even a veggie burger is acceptable.</small> -->
+                  </div>
+                  <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+               </form>
+               <!-- End form -->
+
+            </div>
+            <div class="modal-footer">
+               <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+               <button type="submit" class="btn btn-primary" id='burgerSubmit' data-dismiss='modal'>Submit your burger!</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Modal -->
+
+   <!-- Jumbotron -->
+   <div class='container'>
+      <div class="jumbotron jumbotron-fluid">
+         <h1 class="display-4">Eat-Da-Burger!</h1>
+         <p class="lead">Hungry for burgers? Pick a burger and chow down!</p>
+         <hr class="my-4">
+         <p>Don't like the menu? Click the button to add your own burger!</p>
+         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#burgerModal">
+            Add a Burger!
+         </button>
+      </div>
+   </div>
+   <!-- Jumbotron -->
+
+   <!-- Burgers -->
+   <div class='container'>
+      <div class='row'>
+         <div class='col-sm-6'>
+            <!-- unfinished burgers go here -->
+            <div class='burgerDiv' id='uneaten'>
+               <h3 class='burgerHeader' id='uneatenHeader'>Burgers to Eat!</h3>
+               <!-- <div class='burgerDiv' id='' -->
+            </div>
+         </div>
+         <div class='col-sm-6'>
+            <!-- devoured burgers go here -->
+            <div class='burgerDiv' id='devoured'>
+               <h3 class='burgerHeader' id='devouredHeader'>Already Eaten!</h3>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- Burgers -->
+
+   <!-- <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
+
+   <!-- Bootstrap Scripts -->
+   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"></script>
+   <!-- Bootstrap Scripts -->
+   <script type='text/javascript' src='assets/js/burgers.js'></script>
+</body>
+
+</html>
