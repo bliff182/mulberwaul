@@ -6,13 +6,13 @@ router.get('/', (req, res) => {
    res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
-router.get('/burgers', (req, res) => {
+router.get('/api/burgers', (req, res) => {
    burger.selectAll(data => {
       res.json({ burgers: data });
    });
 });
 
-router.post('/burgers', (req, res) => {
+router.post('/api/burgers', (req, res) => {
    burger.insertOne([
       'burger_name', 'devoured'
    ], [
@@ -23,7 +23,7 @@ router.post('/burgers', (req, res) => {
    });
 });
 
-router.put('/burgers/:id', (req, res) => {
+router.put('/api/burgers/:id', (req, res) => {
    let condition = `id = ${req.params.id}`;
 
    console.log('condition', condition);
@@ -41,7 +41,7 @@ router.put('/burgers/:id', (req, res) => {
    });
 });
 
-router.delete('/burgers/:id', (req, res) => {
+router.delete('/api/burgers/:id', (req, res) => {
    let condition = `id = ${req.params.id}`;
 
    burger.deleteOne(condition, result => {
