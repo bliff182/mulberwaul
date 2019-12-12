@@ -24,12 +24,12 @@ function objToSql(ob) {
          // if string with spaces, add quotation (Lana Del Grey => 'Lana Del Grey)
          if (typeof value === 'string') {
             // value = "'" + value + "'";
-            value = `'${value}'`;
+            value = '"' + value + '"';
          }
          // e.g. {name: 'Lana Del Grey'} => ["name='Lana Del Grey'"]
          // e.g. {sleepy: true} => ["sleepy=true"]
          // arr.push(key + '=' + value);
-         arr.push(`${key}=${value}`);
+         arr.push(key + '=' + value);
       }
    }
    
@@ -41,7 +41,7 @@ function objToSql(ob) {
 const orm = {
 
    selectAll: (table, cb) => {
-      let queryString = `SELECT * FROM ${table};`;
+      let queryString = 'SELECT * FROM ' + table + ';';
 
       connection.query(queryString, (err, result) => {
          if(err) {
@@ -53,7 +53,7 @@ const orm = {
 
    insertOne: (table, cols, vals, cb) => {
 
-      let queryString = `INSERT INTO ${table}`;
+      let queryString = 'INSERT INTO ' + table;
       queryString += ' (';
       queryString += cols.toString();
       queryString += ') ';
@@ -72,7 +72,7 @@ const orm = {
 
    updateOne: (table, objColVals, condition, cb) => {
 
-      let queryString = `UPDATE ${table}`;
+      let queryString = 'UPDATE ' + table;
       queryString += ' SET ';
       queryString += objToSql(objColVals);
       queryString += ' WHERE ';
@@ -89,7 +89,7 @@ const orm = {
 
    deleteOne: (table, condition, cb) => {
 
-      let queryString = `DELETE FROM ${table}`;
+      let queryString = 'DELETE FROM ' + table;
       queryString += ' WHERE ';
       queryString += condition;
 
