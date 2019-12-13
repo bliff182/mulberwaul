@@ -30,7 +30,8 @@ router.put('/api/burgers/:id', (req, res) => {
 
    burger.updateOne({
       // burger_name: req.body.burger_name,
-      devoured: req.body.devoured
+      // devoured: req.body.devoured -- NOT WORKING WHEN THIS IS USED
+      devoured: true
    }, condition, result => {
       if (result.changedRows == 0) {
          // If no rows were changed, then the ID must not exist, so 404

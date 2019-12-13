@@ -1,42 +1,23 @@
 $(document).ready(() => {
-
    // AJAX CALL TO DYNAMICALLY GENERATE BURGERS FROM API
    $.ajax('/api/burgers', {
       type: 'GET'
    }).then(data => {
       let uneatenElem = $('#uneaten');
       let devouredElem = $('#devoured');
-
       let burgers = data.burgers;
       let len = burgers.length;
-
       console.log(burgers);
       for (let i = 0; i < len; i++) {
          let burgerBtn =
-            `<li>
-            ${burgers[i].burger_name}
-            <button type='button' class='btn btn-primary devour' data-id='
-            ${burgers[i].id}' 
-            data-devoured='
-            ${burgers[i].devoured}
-            '>Devour</button></li>`;
-
+            `<li>${burgers[i].burger_name}<button type='button' class='btn btn-primary devour' data-id='${burgers[i].id}'data-devoured='${burgers[i].devoured}'>Devour</button></li>`;
          // if (!burgers[i].devoured) {
          //    burgerBtn += 'Devour';
          // }
-
          // burgerBtn += '</button></li>';
          // burgerBtn += "<button class='deleteBurger' data-id='" + burgers[i].id + "'>Delete Burger</button></li>";
-
          let deleteBtn =
-            `<li>
-         ${burgers[i].burger_name}
-         <button type='button' class='btn btn-danger deleteBtn' data-id='
-         ${burgers[i].id}'
-         data-devoured='
-         ${burgers[i].devoured}
-         '>Delete</button</li>`;
-
+            `<li>${burgers[i].burger_name}<button type='button' class='btn btn-danger deleteBtn' data-id='${burgers[i].id}' data-devoured='${burgers[i].devoured}'>Delete</button</li>`;
          if (burgers[i].devoured) {
             devouredElem.append(deleteBtn);
          } else {
@@ -44,21 +25,20 @@ $(document).ready(() => {
          }
       }
    });
-
    // THIS ISN'T WORKING
    // DEVOUR BURGER
-   $(document).on('click', '.devour', event => {
-      let id = $(this).data('id');
+   $(document).on("click", ".devour", function(event) {
+      event.preventDefault();
+  
+      var burger_id = $(this).data("id");
+  
       let isDevoured = $(this).data('devoured') === true;
-
-      console.log(id)
+      console.log(burger_id)
+      console.log(isDevoured);
       let newDevoured = {
          devoured: isDevoured
       };
-
-
-
-      $.ajax(`/api/burgers/${id}`, {
+      $.ajax(`/api/burgers/${burger_id}`, {
          type: 'PUT',
          data: JSON.stringify(newDevoured),
          dataType: 'json',
@@ -76,7 +56,6 @@ $(document).ready(() => {
          burger_name: $('#burgerInput').val().trim(),
          devoured: false
       };
-
       $.ajax('/api/burgers', {
          type: 'POST',
          data: JSON.stringify(newBurger),
@@ -88,20 +67,19 @@ $(document).ready(() => {
       });
       // console.log(newBurger);
    });
-
-
-   // ALSO NOT WORKING
+   
    // DELETE BURGER
-   $(document).on('click', '.deleteBtn', event => {
-      var id = $(this).data('id');
+   $(document).on("click", ".deleteBtn", function(event) {
+      event.preventDefault();
+      let burger_id = $(this).data("id");
+      // console.log(burger_id);
 
       // SEND DELETE REQUEST
-      $.ajax(`/api/burgers/${id}`, {
+      $.ajax(`/api/burgers/${burger_id}`, {
          type: 'DELETE'
       }).then(() => {
-         console.log('deleted burger', id);
+         console.log('deleted burger', burger_id);
          location.reload();
       });
    });
-
 });
