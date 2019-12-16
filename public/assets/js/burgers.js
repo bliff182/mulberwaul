@@ -1,4 +1,5 @@
 $(document).ready(() => {
+   
    // AJAX CALL TO DYNAMICALLY GENERATE BURGERS FROM API
    $.ajax('/api/burgers', {
       type: 'GET'
@@ -7,17 +8,15 @@ $(document).ready(() => {
       let devouredElem = $('#devoured');
       let burgers = data.burgers;
       let len = burgers.length;
-      console.log(burgers);
+      // console.log(burgers);
+
       for (let i = 0; i < len; i++) {
          let burgerBtn =
             `<li>${burgers[i].burger_name}<button type='button' class='btn btn-primary devour' data-id='${burgers[i].id}'data-devoured='${burgers[i].devoured}'>Devour</button></li>`;
-         // if (!burgers[i].devoured) {
-         //    burgerBtn += 'Devour';
-         // }
-         // burgerBtn += '</button></li>';
-         // burgerBtn += "<button class='deleteBurger' data-id='" + burgers[i].id + "'>Delete Burger</button></li>";
+
          let deleteBtn =
             `<li>${burgers[i].burger_name}<button type='button' class='btn btn-danger deleteBtn' data-id='${burgers[i].id}' data-devoured='${burgers[i].devoured}'>Delete</button</li>`;
+
          if (burgers[i].devoured) {
             devouredElem.append(deleteBtn);
          } else {
@@ -25,8 +24,8 @@ $(document).ready(() => {
          }
       }
    });
-   // THIS ISN'T WORKING
-   // DEVOUR BURGER
+
+   // DEVOUR BUTTON
    $(document).on("click", ".devour", function(event) {
       event.preventDefault();
   
@@ -68,7 +67,7 @@ $(document).ready(() => {
       // console.log(newBurger);
    });
    
-   // DELETE BURGER
+   // DELETE BUTTON
    $(document).on("click", ".deleteBtn", function(event) {
       event.preventDefault();
       let burger_id = $(this).data("id");

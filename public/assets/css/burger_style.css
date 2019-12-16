@@ -1,0 +1,12 @@
+body {
+   background-image: url('../img/burger-pattern-background_67556-123.jpg');
+}
+
+.jumbotron {
+   padding: 20px;
+}
+
+.burgerDiv {
+   padding: 40px;
+   background: none
+}
