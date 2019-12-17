@@ -9,7 +9,7 @@ Eat-Da-Burger! is a full-stack restaurant app that that lets users input the nam
 ![Homepage](/public/assets/img/eat-da-burger-homepage.png)
 
 ## Technologies Used
-*[Bootstrap](https://getbootstrap.com/)
+* [Bootstrap](https://getbootstrap.com/)
 * Node.js
 * [Express](https://www.npmjs.com/package/express)
 * MySql
