@@ -12,10 +12,10 @@ $(document).ready(() => {
 
       for (let i = 0; i < len; i++) {
          let burgerBtn =
-            `<li>${burgers[i].burger_name}<button type='button' class='btn btn-primary devour' data-id='${burgers[i].id}'data-devoured='${burgers[i].devoured}'>Devour</button></li>`;
+            `<li><img src='assets/img/animated-clipart-burger-5.jpg' class='burgerIcon'/>${burgers[i].burger_name}<button type='button' class='btn btn-dark devour' data-id='${burgers[i].id}'data-devoured='${burgers[i].devoured}'>Devour</button></li>`;
 
          let deleteBtn =
-            `<li>${burgers[i].burger_name}<button type='button' class='btn btn-danger deleteBtn' data-id='${burgers[i].id}' data-devoured='${burgers[i].devoured}'>Delete</button</li>`;
+            `<li><img src='assets/img/animated-clipart-burger-5.jpg' class='burgerIcon'/>${burgers[i].burger_name}<button type='button' class='btn btn-danger deleteBtn' data-id='${burgers[i].id}' data-devoured='${burgers[i].devoured}'>Delete</button</li>`;
 
          if (burgers[i].devoured) {
             devouredElem.append(deleteBtn);

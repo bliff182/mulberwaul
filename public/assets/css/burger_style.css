@@ -1,12 +1,29 @@
 body {
    background-image: url('../img/burger-pattern-background_67556-123.jpg');
+   line-height: 150%;
 }
 
 .jumbotron {
+   border: 1px solid #e9ecef;
+   box-shadow: 3px 3px 10px;
    padding: 20px;
 }
 
 .burgerDiv {
    padding: 40px;
-   background: none
+   /* color: #e9ecef; */
+   border: 1px solid #e9ecef;
+   /* text-align: center; */
+   background-color: #e9ecef;
+   border-radius: 10px;
+   box-shadow: 3px 3px 10px black;
+   /* background: none */
+}
+
+.burgerIcon {
+   max-width: 80px;
+}
+
+#uneated, #devoured {
+   padding: 20px;
 }
